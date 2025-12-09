@@ -13,55 +13,25 @@ import Idcard from './Component/Idcard'
 import Dashboard from './Component/Dashboard'
 
 function App() {
-
   const reactrot = createBrowserRouter([
     {
       path: "/",
       element: <Navbar />,
       children: [
-        {
-          index: true,
-          element: <Home />
-        },
-        {
-          path: "dashboard",
-          element: <Dashboard/>
-        },
-        {
-          path: "avtomobil",
-          element: <Avtomobil />
-        },
-        {
-          path: "avtomobil/:id",
-          element: <Idcard />
-        },
-        {
-          path: "motosikl",
-          element: <Motorcycle />
-        },
-        {
-          path: "biz",
-          element: <Biz />
-        },
-        {
-          path: "zapchas",
-          element: <Zapchas />
-        },
-        {
-          path: "logn",
-          element: <AuthPage />
-        },
-        {
-          path: "*",
-          element: <Notfon />
-        }
+        { index: true, element: <Home /> },
+        { path: "dashboard", element: <Dashboard/> },
+        { path: "avtomobil", element: <Avtomobil /> },
+        { path: "avtomobil/:id", element: <Idcard /> },
+        { path: "motosikl", element: <Motorcycle /> },
+        { path: "biz", element: <Biz /> },
+        { path: "zapchas", element: <Zapchas /> },
+        { path: "logn", element: <AuthPage /> },
+        { path: "*", element: <Notfon /> }
       ]
     }
   ])
 
-  return (
-    <RouterProvider router={reactrot} />
-  )
+  return <RouterProvider router={reactrot} />
 }
 
 export default App
