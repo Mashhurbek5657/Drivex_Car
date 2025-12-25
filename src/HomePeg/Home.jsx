@@ -1,6 +1,6 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
@@ -15,6 +15,10 @@ import img7 from "../img/a3f91322_1.jpg";
 import img8 from "../img/S2kFb117352920149371_b.jpg";
 import img9 from "../img/image (1).png";
 import img10 from "../img/8.jpg";
+import img18 from "../img/8LtSsd17016991665180_l.jpg"
+import img19 from "../img/3EZ9i515997386104901_b.jpg"
+import img20 from "../img/cobalt.jpg"
+import img21 from "../img/mainiimage.avif"
 
 import "./slider.css";
 
@@ -29,6 +33,10 @@ export default function Home() {
   const features = Array.isArray(t("Home.features", { returnObjects: true }))
     ? t("Home.features", { returnObjects: true })
     : [];
+
+  const [activeIndex, setActiveIndex] = useState(1);
+
+  const images = [img18, img19, img20, img21];
 
   return (
     <div className="relative z-0 -mt-[70px] overflow-x-hidden">
@@ -46,28 +54,28 @@ export default function Home() {
 
       {/* Swiper */}
       <Swiper
-        slidesPerView="auto"
-        loop
-        autoplay={{ delay: 7000, disableOnInteraction: false }}
-        modules={[Autoplay]}
-        onSwiper={(swiper) => (swiperRef.current = swiper)}
-      >
-        {[
-          "/src/img/8LtSsd17016991665180_l.jpg",
-          "/src/img/bmw.png",
-          "/src/img/cobalt.jpg",
-          "/src/img/3EZ9i515997386104901_b.jpg",
-        ].map((bg, i) => (
-          <SwiperSlide key={i}>
-            <div
-              className="relative w-full h-[500px] sm:h-[650px] lg:h-[737px] bg-cover bg-center"
-              style={{ backgroundImage: `url(${bg})` }}
-            >
-              <div className="absolute inset-0 bg-black/50" />
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      slidesPerView="auto"
+      loop
+      autoplay={{ delay: 7000, disableOnInteraction: false }}
+      modules={[Autoplay]}
+      onSwiper={(swiper) => (swiperRef.current = swiper)}
+      onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+    >
+      {images.map((bg, i) => (
+        <SwiperSlide key={i}>
+          <div className="relative w-full h-[500px] sm:h-[650px] lg:h-[737px] overflow-hidden">
+            <img
+              src={bg}
+              alt={`slide-${i}`}
+              className={`w-full h-full object-cover transition-transform duration-[5000ms] ease-linear ${
+                activeIndex === i ? "scale-[1.05]" : "scale-100"
+              }`}
+            />
+            <div className="absolute inset-0 bg-black/40"></div>
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
 
       <div className="max-w-[1400px] mx-auto px-4">
         {/* Convenience & Stats */}

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
@@ -6,9 +6,17 @@ import { Autoplay } from "swiper/modules";
 import AvtoCard from "../Component/AvtoCard";
 import { useTranslation } from "react-i18next";
 
+import img1 from "../img/MAIN-SHOT.RGB.png";
+import img2 from "../img/white-car-with-license-plate-number-4-front_972324-78685.png";
+import img3 from "../img/Transforming-Your-Garage-for-Luxury-Cars.jpg";
+import img4 from "../img/luxury-Car-in-showroom.png";
+
 export default function Avtomobil() {
   const swiperRef = useRef(null);
   const { t } = useTranslation();
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const images = [img1, img2, img3, img4];
 
   return (
     <div>
@@ -28,19 +36,19 @@ export default function Avtomobil() {
           autoplay={{ delay: 7000, disableOnInteraction: false }}
           modules={[Autoplay]}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           className="relative z-0"
         >
-          {[
-            "/src/img/MAIN-SHOT.RGB.png",
-            "/src/img/white-car-with-license-plate-number-4-front_972324-78685.png",
-            "/src/img/Transforming-Your-Garage-for-Luxury-Cars.jpg",
-            "/src/img/luxury-Car-in-showroom.png",
-          ].map((img, i) => (
+          {images.map((img, i) => (
             <SwiperSlide key={i}>
-              <div
-                className="relative w-full h-[300px] sm:h-[360px] md:h-[420px] bg-cover bg-center"
-                style={{ backgroundImage: `url(${img})` }}
-              >
+              <div className="relative w-full h-[300px] sm:h-[360px] md:h-[420px] overflow-hidden">
+                <img
+                  src={img}
+                  alt={`slide-${i}`}
+                  className={`w-full h-full object-cover transition-transform duration-[5000ms] ease-linear ${
+                    activeIndex === i ? "scale-[1.05]" : "scale-100"
+                  }`}
+                />
                 <div className="absolute inset-0 bg-black/50 pointer-events-none"></div>
               </div>
             </SwiperSlide>

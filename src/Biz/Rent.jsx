@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
@@ -31,9 +31,20 @@ import img18 from "../img/toyota-svgrepo-com.svg";
 import img19 from "../img/volkswagen-svgrepo-com.svg";
 import img20 from "../img/volvo-svgrepo-com.svg";
 
+
+import img190 from "../img/BMW-VR-3.jpg";
+import img990 from "../img/lovepik-luxury-car-interior-picture_501658650.jpg";
+import img890 from "../img/gse7rkmikw7ql8izxarq.pnj.jpg";
+import img290 from "../img/rr.png";
+
 export default function Rent() {
   const swiperRef = useRef(null);
   const { t } = useTranslation();
+
+
+  const [activeIndex, setActiveIndex] = useState(1);
+
+  const images = [img190, img990, img890, img290];
 
   return (
     <div className="overflow-x-hidden">
@@ -51,14 +62,18 @@ export default function Rent() {
           autoplay={{ delay: 7000, disableOnInteraction: false }}
           modules={[Autoplay]}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         >
-          {[...t("Rent.sliderImages", { returnObjects: true })].map((img, i) => (
+          {images.map((img, i) => (
             <SwiperSlide key={i}>
-              <div
-                className="w-full h-[260px] sm:h-[340px] lg:h-[420px] bg-cover bg-center relative"
-                style={{ backgroundImage: `url(${img})` }}
-              >
-                <div className="absolute inset-0 bg-black/50"></div>
+              <div className="relative w-full h-[260px] sm:h-[320px] lg:h-[420px] overflow-hidden">
+                <img
+                  src={img}
+                  alt={`slide-${i}`}
+                  className={`w-full h-full object-cover transition-transform duration-[5000ms] ease-linear ${activeIndex === i ? "scale-[1.05]" : "scale-100"
+                    }`}
+                />
+                <div className="absolute inset-0 bg-black/50 pointer-events-none"></div>
               </div>
             </SwiperSlide>
           ))}
@@ -99,8 +114,8 @@ export default function Rent() {
           </div>
 
           <div data-aos="fade-right" className="mt-10 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
-            {[img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,
-              img11,img12,img13,img14,img15,img16,img17,img18,img19,img20
+            {[img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
+              img11, img12, img13, img14, img15, img16, img17, img18, img19, img20
             ].map((logo, i) => (
               <div
                 key={i}
