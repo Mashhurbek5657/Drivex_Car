@@ -23,12 +23,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(196, 98, 0); 
+  background: #183153; 
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b30000; 
+  background: #0079c5; 
 }
 
 
@@ -43,4 +43,8 @@
 
 .text{
   text-align: center;
+}
+
+.body{
+  background-color: white !important;
 }

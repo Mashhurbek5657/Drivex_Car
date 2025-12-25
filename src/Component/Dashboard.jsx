@@ -1,32 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function Dashboard() {
-
-    
-  const [selectedDay, setSelectedDay] = useState(null);
+    const { t } = useTranslation();
+    const [selectedDay, setSelectedDay] = useState(null);
 
     return (
         <div className="min-h-screen bg-gray-100 p-6 font-sans">
-            <h1 className="text-xl font-semibold mb-6">Dashboard</h1>
+            <h1 className="text-xl font-semibold mb-6">{t('Dashboard.title')}</h1>
 
-            <div className="grid grid-cols-4 gap-6">
+            <div className="grid grid-cols-4 gap-6"> 
                 <div className="bg-white shadow rounded-xl p-5">
-                    <p className="text-gray-500">Earning</p>
+                    <p className="text-gray-500">{t('Dashboard.earning')}</p>
                     <h2 className="text-3xl font-bold mt-1">$ 628</h2>
                 </div>
 
                 <div className="bg-white shadow rounded-xl p-5">
-                    <p className="text-gray-500">Share</p>
+                    <p className="text-gray-500">{t('Dashboard.share')}</p>
                     <h2 className="text-3xl font-bold mt-1">2434</h2>
                 </div>
 
                 <div className="bg-white shadow rounded-xl p-5">
-                    <p className="text-gray-500">Likes</p>
+                    <p className="text-gray-500">{t('Dashboard.likes')}</p>
                     <h2 className="text-3xl font-bold mt-1">1259</h2>
                 </div>
 
                 <div className="bg-white shadow rounded-xl p-5">
-                    <p className="text-gray-500">Rating</p>
+                    <p className="text-gray-500">{t('Dashboard.rating')}</p>
                     <h2 className="text-3xl font-bold mt-1">8,5</h2>
                 </div>
             </div>
@@ -35,16 +35,16 @@ export default function Dashboard() {
 
                 <div className="col-span-2 bg-white rounded-xl shadow p-6">
                     <div className="flex justify-between mb-4">
-                        <h3 className="font-semibold text-gray-700">Result</h3>
-                        <button className="bg-orange-500 text-white px-3 rounded-md text-sm">Check Now</button>
+                        <h3 className="font-semibold text-gray-700">{t('Dashboard.result')}</h3>
+                        <button className="bg-orange-500 text-white px-3 rounded-md text-sm">{t('Dashboard.checkNow')}</button>
                     </div>
 
                     <div className="h-40 w-full flex items-end space-x-3">
-                        {[50, 70, 45, 65, 40, 75, 60, 80, 60, 80, 50, 70,].map((h, i) =>
+                        {[50, 70, 45, 65, 40, 75, 60, 80, 60, 80, 50, 70].map((h, i) =>
                             <div key={i} className="flex flex-col items-center">
                                 <div className="w-5 bg-blue-600 rounded" style={{ height: h }}></div>
                                 <div className="w-5 bg-orange-400 rounded mt-1" style={{ height: h - 15 }}></div>
-                                <p className="text-xs mt-2 text-gray-400">M{i + 1}</p>
+                                <p className="text-xs mt-2 text-gray-400">{t('Dashboard.month')} {i + 1}</p>
                             </div>
                         )}
                     </div>
@@ -61,23 +61,23 @@ export default function Dashboard() {
                         </span>
                     </div>
                     <ul className="mt-4 text-gray-500 text-sm space-y-1">
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
+                        <li>{t('Dashboard.item1')}</li>
+                        <li>{t('Dashboard.item2')}</li>
+                        <li>{t('Dashboard.item3')}</li>
+                        <li>{t('Dashboard.item4')}</li>
                     </ul>
-                    <button className="mt-4 bg-orange-500 text-white px-3 py-1 rounded-md text-sm">Check Now</button>
+                    <button className="mt-4 bg-orange-500 text-white px-3 py-1 rounded-md text-sm">{t('Dashboard.checkNow')}</button>
                 </div>
             </div>
 
             <div className="grid grid-cols-3 gap-6 mt-6">
                 <div className="col-span-2 bg-white shadow rounded-xl p-6">
-                    <p className="font-semibold text-gray-700 mb-5">Lorem Chart</p>
+                    <p className="font-semibold text-gray-700 mb-5">{t('Dashboard.loremChart')}</p>
                     <div className="w-full h-[180px] bg-gradient-to-r from-blue-500 to-orange-400 opacity-70 rounded-lg"></div>
                 </div>
 
                 <div className="bg-white shadow rounded-xl p-6 h-80 flex flex-col">
-                    <p className="font-semibold text-gray-700 mb-4">Calendar</p>
+                    <p className="font-semibold text-gray-700 mb-4">{t('Dashboard.calendar')}</p>
                     <div className="grid grid-cols-7 gap-2 text-center text-sm grow">
                         {Array.from({ length: 30 }, (_, i) => {
                             const day = i + 1;
@@ -98,7 +98,6 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 }

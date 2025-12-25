@@ -1,0 +1,146 @@
+{
+    "Home": {
+      "mainTitle1": "AVTOMOBIL",
+      "mainTitle2": "IJARA XIZMATLARI",
+      "details": "Tafsilotlar",
+      "rentNow": "Hozir ijaraga",
+      "convenienceTitle": "Qulaylik",
+      "convenienceDesc": "2024-yilgi eng ommalashgan mashina",
+      "statsTitle": "Statistika",
+      "statsDesc": "TOP 4 avtomobillar",
+      "features": [
+        "O'z avtoservis markazi",
+        "Tez chiqish",
+        "Hashamatli avtomobil ijarasi",
+        "Professional haydovchilar"
+      ],
+      "featureDesc": "Yuqori sifat kafolati",
+      "autoSchool": "Auto maktab",
+      "autoSchoolDesc": "Bunday kafolatlar ushlab turish soni, o'quvchi imtihondan o'tishiga yordam berish, o'quvchining puli qo'shimcha mashg'ulotlari kabini o'z ichiga oladi.",
+      "moreRead": "Ko‘proq o‘qish"
+    },
+    "Navbar": {
+      "home": "Uy",
+      "cars": "Avtomobil",
+      "about": "Biz haqimizda",
+      "spare": "Ehtiyot qismlar",
+      "faq": "TSS"
+    },
+        "Cars": {
+          "title": "AUTO IJARA",
+          "subtitle": "Avtomobillar ketma-ketligi hozir ijaraga band qiling."
+        },
+      
+    "Rent": {
+    "title": "BIZ HAQIMIZDA",
+    "sliderImages": [
+      "/src/img/BMW-VR-3.jpg",
+      "/src/img/lovepik-luxury-car-interior-picture_501658650.jpg",
+      "/src/img/gse7rkmikw7ql8izxarq.pnj.jpg",
+      "/src/img/rr.png"
+    ],
+    "teamTitle": "Bizning jamoa",
+    "teamDesc": "Ertangi kunning ustasi bo‘lish uchun bugundan saboq olish kerak!",
+    "contact": "+998 (97) 973 80 42",
+    "carBrandsTitle": "Avtomobil rusumlari",
+    "carBrandsDesc": "Biz barcha mashhur avtomobil brendlari bilan ishlaymiz",
+    "autoSchoolTitle": "Auto maktab",
+    "autoSchoolDesc": "Professional va kafolatlangan o‘quv jarayoni"
+  },
+  "Zapchas": {
+    "title": "Ehtiyot qismlar",
+    "subtitle": "Avtomobillar uchun ehtiyot qismlar.",
+    "sliderImages": [
+      "/src/img/MAIN-SHOT.RGB.png",
+      "/src/img/white-car-with-license-plate-number-4-front_972324-78685.png",
+      "/src/img/Transforming-Your-Garage-for-Luxury-Cars.jpg",
+      "/src/img/luxury-Car-in-showroom.png"
+    ]
+  },
+  "AvtoCard": {
+    "searchPlaceholder": "Avtomobil nomi",
+    "pricePlaceholder": "Ijara narx ($)",
+    "bookNow": "Hozir band qilish",
+    "loadMore": "Ko‘proq"
+  },
+  "AuthPage": {
+    "title": "Ro‘yxatdan o‘tish",
+    "email": "Email",
+    "emailPlaceholder": "Email kiriting",
+    "emailError": "Emailda xatolik bor!",
+    "phone": "Telefon raqam",
+    "phoneError": "Telefon raqam noto‘g‘ri formatda!",
+    "password": "Parol",
+    "passwordPlaceholder": "Parol kiriting",
+    "passwordLevel": "Parol darajasi",
+    "passwordError": "Parol 6–16 ta belgidan iborat bo‘lishi kerak!",
+    "easy": "Oson",
+    "medium": "O‘rta",
+    "hard": "Qiyin",
+    "submit": "Yuborish",
+    "success": "Muvaffaqiyatli ro'yhatdan o'tdingiz!",
+    "fillAll": "Iltimos, ma'lumotlarni to‘g‘ri kiriting"
+  },
+  "Shop": {
+    "newOrder": "🛒 <b>Yangi buyurtma</b>",
+    "item": "Mahsulot",
+    "qty": "Soni",
+    "price": "Narxi",
+    "desc": "Tavsif",
+    "total": "Jami",
+    "emptyCart": "🛒 Savat bo‘sh",
+    "emptyDesc": "Maxsulotlar mavjud emas. Iltimos, Ehtiyot qismlar bo‘limiga o'ting.",
+    "goParts": "Ehtiyot qismlar",
+    "cart": "Savat",
+    "remove": "O‘chirish",
+    "order": "Buyurtma",
+    "products": "Mahsulotlar",
+    "items": "ta",
+    "orderButton": "Buyurtma berish",
+    "success": "✅ Buyurtma yuborildi",
+    "successDesc": "Operatorlar tez orada siz bilan bog‘lanadi"
+  },
+  "Shopcar": {
+    "name": "Nomi",
+    "price": "Narx",
+    "currency": "so'm",
+    "details": "savatga qo'shish",
+    "loadMore": "Ko‘proq"
+  },
+  "Idzapchas": {
+    "back": "Ortga",
+    "currency": "so'm",
+    "addToCart": "Savatga qo‘shish",
+    "notFound": "Topilmadi"
+  },
+  "Footer": {
+    "partners": "Hamkorlarimiz",
+    "slogan": "Har bir sayohatingiz qulay bo'lishiga ishonch hosil qilamiz.",
+    "users": "Foydalanuvchilar",
+    "links": "Havolalar",
+    "contact": "Bog‘lanish",
+    "email": "Email",
+    "phone": "Telefon",
+    "copyright": "© 2025 Barcha huquqlar himoyalangan"
+  },
+  "NotFound": {
+    "title": "SAHIFA TOPILMADI",
+    "description": "404 topilmadi xatosi eng keng tarqalgan HTTP holatlaridan biri bo‘lib, so‘ralgan sahifa serverda topilmadi."
+  },
+  "Dashboard": {
+    "title": "Dashboard",
+    "earning": "Daromad",
+    "share": "Ulashish",
+    "likes": "Yoqtirishlar",
+    "rating": "Baholash",
+    "result": "Natija",
+    "checkNow": "Tekshirish",
+    "month": "Oy",
+    "item1": "Element 1",
+    "item2": "Element 2",
+    "item3": "Element 3",
+    "item4": "Element 4",
+    "loremChart": "Lorem Chart",
+    "calendar": "Kalendar"
+  }
+}

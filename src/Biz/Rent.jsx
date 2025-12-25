@@ -1,113 +1,125 @@
-import React, { useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/autoplay';
-import { Autoplay } from 'swiper/modules';
-import img5 from '../img/03-merc-gelik-mob_1080x1080_613 (2).png'
+import React, { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/autoplay";
+import { Autoplay } from "swiper/modules";
+import { useTranslation } from "react-i18next";
+
+import img111 from "../img/N4Kup8bNiTEqI4Ga8B-Q4G53eFw5O2b6.jpg";
+import img112 from "../img/5f58d51685868a422e30d2b18dbba38e.jpg";
+import img113 from "../img/c7eae40cd9f80c78a73f61953b941c37.jpg";
+import img114 from "../img/akbgUlALZYzBgVt.jpeg";
+
+import img1 from "../img/bmw-logo-svgrepo-com (1).svg";
+import img2 from "../img/audi-svgrepo-com.svg";
+import img3 from "../img/chevrolet-svgrepo-com.svg";
+import img4 from "../img/ford-svgrepo-com.svg";
+import img5 from "../img/honda-svgrepo-com.svg";
+import img6 from "../img/hyundai-svgrepo-com.svg";
+import img7 from "../img/jaguar-svgrepo-com.svg";
+import img8 from "../img/kia-svgrepo-com.svg";
+import img9 from "../img/land-rover-svgrepo-com.svg";
+import img10 from "../img/lexus-svgrepo-com.svg";
+import img11 from "../img/mazda-alt-svgrepo-com.svg";
+import img12 from "../img/mercedes-benz-alt-svgrepo-com.svg";
+import img13 from "../img/mitsubishi-1-logo-svgrepo-com.svg";
+import img14 from "../img/nissan-svgrepo-com.svg";
+import img15 from "../img/porsche-svgrepo-com.svg";
+import img16 from "../img/subaru-svgrepo-com.svg";
+import img17 from "../img/tesla-svgrepo-com.svg";
+import img18 from "../img/toyota-svgrepo-com.svg";
+import img19 from "../img/volkswagen-svgrepo-com.svg";
+import img20 from "../img/volvo-svgrepo-com.svg";
 
 export default function Rent() {
-
-
   const swiperRef = useRef(null);
+  const { t } = useTranslation();
 
   return (
-    <div>
-      <div className=" -mt-[70px]">
+    <div className="overflow-x-hidden">
+      <div className="-mt-[70px] relative">
 
-        <div className="absolute mt-[170px] top-0 left-0 w-full z-50">
-          <div className="text-center font-sans relative z-0 mt-19">
-            <h1 className="font-semibold text-[100px] text-white/30">BIZ HAQIMIZDA</h1>
-          </div>
+        <div className="absolute top-[140px] sm:top-[170px] w-full z-50">
+          <h1 className="text-center font-semibold text-[42px] sm:text-[70px] lg:text-[100px] text-white/30">
+            {t("Rent.title")}
+          </h1>
         </div>
 
         <Swiper
-          slidesPerView={'auto'}
-          spaceBetween={0}
-          loop={true}
+          slidesPerView="auto"
+          loop
           autoplay={{ delay: 7000, disableOnInteraction: false }}
           modules={[Autoplay]}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
-          className="relative z-0"
         >
-          <SwiperSlide>
-            <div className="slide-bg relative w-full h-[420px] bg-cover bg-center bg-[url('/src/img/BMW-VR-3.jpg')]">
-              <div className="absolute inset-0 bg-black/50"></div>
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className="slide-bg relative w-full h-[420px] bg-cover bg-center bg-[url('/src/img/lovepik-luxury-car-interior-picture_501658650.jpg')]">
-              <div className="absolute inset-0 bg-black/50"></div>
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className="slide-bg relative w-full h-[420px] bg-cover bg-center bg-[url('/src/img/gse7rkmikw7ql8izxarq.pnj.jpg')]">
-              <div className="absolute inset-0 bg-black/50"></div>
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className="slide-bg relative w-full h-[420px] bg-cover bg-center bg-[url('/src/img/rr.png')]">
-              <div className="absolute inset-0 bg-black/50"></div>
-            </div>
-          </SwiperSlide>
+          {[...t("Rent.sliderImages", { returnObjects: true })].map((img, i) => (
+            <SwiperSlide key={i}>
+              <div
+                className="w-full h-[260px] sm:h-[340px] lg:h-[420px] bg-cover bg-center relative"
+                style={{ backgroundImage: `url(${img})` }}
+              >
+                <div className="absolute inset-0 bg-black/50"></div>
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
-        <div className=" max-w-[1300px] m-auto">
-          <div className="min-h-screen flex items-center justify-center px-10 py-16">
-            <div className="max-w-7xl w-full grid lg:grid-cols-2 gap-10 items-center">
 
-              <div className="grid grid-cols-3 gap-4">
-                <div className="rounded-l-3xl rounded-b-3xl overflow-hidden col-span-2">
-                  <img src={img5} className=" w-full h-full object-cover" />
+        <div className="max-w-[1300px] mx-auto px-4">
+
+          <div className="min-h-screen flex items-center justify-center">
+            <div
+              className="w-full grid lg:grid-cols-2 gap-10 items-center mt-10 sm:mt-6 lg:-mt-40"
+            >
+              <div data-aos="fade-up-right" className="grid grid-cols-3 gap-3">
+                <div className="col-span-2 rounded-l-3xl rounded-b-3xl overflow-hidden">
+                  <img src={img113} className="w-full h-full object-cover" />
                 </div>
                 <div className="rounded-3xl overflow-hidden">
-                  <img src={img5} className="w-full h-full object-cover" />
+                  <img src={img112} className="w-full h-full object-cover" />
                 </div>
-                <div className="rounded-t-3xl rounded-l-3xl overflow-hidden col-span-1 h-44">
-                  <img src={img5} className="w-full h-full object-cover" />
+                <div className="col-span-1 h-32 sm:h-44 rounded-t-3xl rounded-l-3xl overflow-hidden">
+                  <img src={img111} className="w-full h-full object-cover" />
                 </div>
-                <div className="rounded-r-3xl rounded-t-3xl rounded-bl-3xl overflow-hidden col-span-2 h-48">
-                  <img src={img5} className="w-full h-full object-cover" />
+                <div className="col-span-2 h-40 sm:h-48 rounded-r-3xl rounded-t-3xl rounded-bl-3xl overflow-hidden">
+                  <img src={img114} className="w-full h-full object-cover" />
                 </div>
               </div>
 
-              <div className="space-y-6">
-                <h1 className="text-5xl font-bold leading-tight">
-                  Bizning jamoa
-                </h1>
-
-                <p className="text-gray-600 leading-relaxed">
-                  Ertangi kunning ustasi bo'lish uchun bugundan saboq olish kerak! Biz bilan kelajak kasblarini egallang! IT sohalari bir-biriga juda bog'langan va bir sohani o'zlashtirish bir vaqtning o'zida bir nechta boshqa sohalar haqida muhim bilimlarni beradi.
-                </p>
-
-                <div className="flex gap-4 pt-2">
-                  <button className="px-8 py-3 bg-black text-white rounded-full hover:opacity-80 transition">
-                    Join us
-                  </button>
-                </div>
-
-                <div className="pt-4">
-                  <p className="text-gray-600">Savollaringiz bormi?</p>
-                  <p className="text-lg font-semibold">+998 (97) 973804288</p>
-                </div>
+              <div data-aos="zoom-in-down" className="space-y-5">
+                <h1 className="text-3xl sm:text-5xl font-bold">{t("Rent.teamTitle")}</h1>
+                <p className="text-gray-600 text-sm sm:text-base">{t("Rent.teamDesc")}</p>
+                <p className="text-lg font-semibold">{t("Rent.contact")}</p>
               </div>
             </div>
           </div>
-          <div className=" mt-20 gap-10">
-            <div className=' flex justify-center'>
-              <div>
-                <div className=' flex justify-center'>
-                  <h1 className=' text-[50px] text-yellow-600'>Auto maktab</h1>
-                </div>
-                <p>Bunday kafolatlar ushlab turish soni, o'quvchi imtihondan o'tishiga yordam berish, o'quvchining puli qo'shimcha mashg'ulotlari kabini o'z ichiga oladi.. </p>
-              </div>
-            </div>
-            <br />
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6195.7505190988495!2d66.81098956857629!3d39.0637568109483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f4c9100717d754b%3A0x2801c8b8529824a!2sAvtomaktab!5e0!3m2!1sru!2s!4v1764087162290!5m2!1sru!2s" width="600" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" className=' w-full h-[500px]'></iframe>
+
+          <div className="text-center mt-16 sm:mt-10 lg:-mt-40">
+            <h1 className="text-3xl sm:text-[50px] text-yellow-600">{t("Rent.carBrandsTitle")}</h1>
+            <p className="text-sm sm:text-base">{t("Rent.carBrandsDesc")}</p>
           </div>
+
+          <div data-aos="fade-right" className="mt-10 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+            {[img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,
+              img11,img12,img13,img14,img15,img16,img17,img18,img19,img20
+            ].map((logo, i) => (
+              <div
+                key={i}
+                className="bg-white p-4 rounded-xl flex items-center justify-center shadow hover:scale-[1.05] transition"
+              >
+                <img src={logo} className="w-14 sm:w-16" />
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 sm:mt-20 lg:mt-24">
+            <h1 className="text-center text-3xl sm:text-[50px] text-yellow-600">{t("Rent.autoSchoolTitle")}</h1>
+            <p className="text-center text-sm sm:text-base mt-2">{t("Rent.autoSchoolDesc")}</p>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6195.7505190988495!2d66.81098956857629!3d39.0637568109483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f4c9100717d754b%3A0x2801c8b8529824a!2sAvtomaktab!5e0!3m2!1sru!2s!4v1764087162290!5m2!1sru!2s" width="600" height="400" className="w-full h-[400px]" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
         </div>
       </div>
     </div>
-  )
+  );
 }

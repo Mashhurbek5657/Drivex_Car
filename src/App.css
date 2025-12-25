@@ -1,3 +1,51 @@
-body{
+body {
     background-color: whitesmoke;
+}
+
+.marquee-fade {
+    position: relative;
+    overflow: hidden;
+
+    /* FADE EFFECT */
+    -webkit-mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 12%,
+            black 88%,
+            transparent 100%);
+
+    mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 12%,
+            black 88%,
+            transparent 100%);
+}
+
+
+.jadval {
+    border-radius: 20px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    opacity: 1;
+    border: 1px solid #262626;
+}
+
+.jid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 125px;
+    opacity: 1;
+    gap: 10px;
+    border-left-width: 1px;
+    padding: 10px;
+    border: 1px solid #262626;
+}
+
+.jid img {
+    cursor: pointer;
+    display: flex;
+    width: 100px;
 }

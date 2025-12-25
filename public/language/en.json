@@ -1,0 +1,147 @@
+{
+    "Home": {
+      "mainTitle1": "CAR",
+      "mainTitle2": "RENTAL SERVICES",
+      "details": "Details",
+      "rentNow": "Rent Now",
+      "convenienceTitle": "Convenience",
+      "convenienceDesc": "Most popular car of 2024",
+      "statsTitle": "Statistics",
+      "statsDesc": "TOP 4 cars",
+      "features": [
+        "Own car service center",
+        "Fast exit",
+        "Luxury car rental",
+        "Professional drivers"
+      ],
+      "featureDesc": "High quality guarantee",
+      "autoSchool": "Driving School",
+      "autoSchoolDesc": "These guarantees include keeping the number, helping the student pass the exam, and additional lessons fees.",
+      "moreRead": "Read more"
+    },
+    "Navbar": {
+      "home": "Home",
+      "cars": "Cars",
+      "about": "About us",
+      "spare": "Spare parts",
+      "faq": "FAQ"
+    },
+        "Cars": {
+          "title": "CAR RENTAL",
+          "subtitle": "Reserve a lineup of cars for rent now."
+        },
+        "Rent": {
+    "title": "ABOUT US",
+    "sliderImages": [
+      "/src/img/BMW-VR-3.jpg",
+      "/src/img/lovepik-luxury-car-interior-picture_501658650.jpg",
+      "/src/img/gse7rkmikw7ql8izxarq.pnj.jpg",
+      "/src/img/rr.png"
+    ],
+    "teamTitle": "Our Team",
+    "teamDesc": "To become tomorrow’s master, start learning today!",
+    "contact": "+998 (97) 973 80 42",
+    "carBrandsTitle": "Car Brands",
+    "carBrandsDesc": "We work with all popular car brands",
+    "autoSchoolTitle": "Driving School",
+    "autoSchoolDesc": "Professional and guaranteed learning process"
+  },
+  "Zapchas": {
+    "title": "Spare Parts",
+    "subtitle": "Spare parts for cars.",
+    "sliderImages": [
+      "/src/img/MAIN-SHOT.RGB.png",
+      "/src/img/white-car-with-license-plate-number-4-front_972324-78685.png",
+      "/src/img/Transforming-Your-Garage-for-Luxury-Cars.jpg",
+      "/src/img/luxury-Car-in-showroom.png"
+    ]
+  },
+  "AvtoCard": {
+    "searchPlaceholder": "Car name",
+    "pricePlaceholder": "Rental price ($)",
+    "bookNow": "Book Now",
+    "loadMore": "Load More"
+  },
+  "AuthPage": {
+    "title": "Sign Up",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "emailError": "Invalid email!",
+    "phone": "Phone number",
+    "phoneError": "Invalid phone format!",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "passwordLevel": "Password level",
+    "passwordError": "Password must be 6–16 characters!",
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard",
+    "submit": "Submit",
+    "success": "Successfully registered!",
+    "fillAll": "Please fill all fields correctly"
+  },
+  "Shop": {
+    "newOrder": "🛒 <b>New Order</b>",
+    "item": "Item",
+    "qty": "Quantity",
+    "price": "Price",
+    "desc": "Description",
+    "total": "Total",
+    "emptyCart": "🛒 Cart is empty",
+    "emptyDesc": "No products available. Please go to Spare Parts section.",
+    "goParts": "Spare Parts",
+    "cart": "Cart",
+    "remove": "Remove",
+    "order": "Order",
+    "products": "Products",
+    "items": "pcs",
+    "orderButton": "Place Order",
+    "success": "✅ Order Sent",
+    "successDesc": "Operators will contact you shortly"
+  },
+  "Shopcar": {
+    "name": "Name",
+    "price": "Price",
+    "currency": "UZS",
+    "details": "add to cart",
+    "loadMore": "Load More"
+  },
+  "Idzapchas": {
+    "back": "Back",
+    "currency": "UZS",
+    "addToCart": "Add to Cart",
+    "notFound": "Not Found"
+  },
+  "Footer": {
+    "partners": "Our Partners",
+    "slogan": "We ensure every journey is comfortable.",
+    "users": "Users",
+    "links": "Links",
+    "contact": "Contact",
+    "email": "Email",
+    "phone": "Phone",
+    "copyright": "© 2025 All rights reserved"
+  },
+  "NotFound": {
+    "title": "PAGE NOT FOUND",
+    "description": "The 404 error is one of the most common HTTP statuses, indicating that the requested page could not be found on the server."
+  },
+  "Dashboard": {
+    "title": "Dashboard",
+    "earning": "Earning",
+    "share": "Share",
+    "likes": "Likes",
+    "rating": "Rating",
+    "result": "Result",
+    "checkNow": "Check Now",
+    "month": "M",
+    "item1": "Item 1",
+    "item2": "Item 2",
+    "item3": "Item 3",
+    "item4": "Item 4",
+    "loremChart": "Lorem Chart",
+    "calendar": "Calendar"
+  }
+}
+  
+  
