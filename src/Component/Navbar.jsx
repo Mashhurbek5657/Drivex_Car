@@ -22,7 +22,7 @@ export default function Navbar() {
 
   const { cartCount } = useCart();
 
-  const homeStylePaths = ["/", "/logn"];
+  const homeStylePaths = ["/"];
   const isHomeLike =
     homeStylePaths.includes(location.pathname) ||
     location.pathname === "*" ||
